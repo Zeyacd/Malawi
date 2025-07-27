@@ -1,38 +1,317 @@
-.App {
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .logo-title {
+    justify-content: center;
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .card-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .page > div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important; /* forza 1 colonna per il grid usato in ChiSiamo */
+  }
+
+  .donation-form, 
+  .registration-form {
+    max-width: 100% !important;
+    padding: 1rem !important;
+  }
+
+  .chat-box {
+    height: 300px;
+  }
+
+  .chat-input {
+    flex-direction: column;
+  }
+
+  .chat-input input,
+  .chat-input button {
+    width: 100%;
+  }
+
+  /* MalawiMap container fixes */
+  .leaflet-container {
+    height: 300px !important;
+    width: 100% !important;
+  }
+
+  /* MalawiMap sidebar */
+  div[style*="border-right"] {
+    width: 100% !important;
+    border-right: none !important;
+    border-bottom: 1px solid #ccc !important;
+    padding-bottom: 10px !important;
+  }
+
+  div[style*="display: flex"][style*="height: 100vh"] {
+    flex-direction: column !important;
+    height: auto !important;
+  }
+}
+
+
+.header {
+  background-color: green;
+  color: white;
+  padding: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.border-donation {
+  border: 1px solid green;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav a:hover {
+  text-decoration: underline;
+}
+
+.content {
+  padding: 20px;
+}
+
+.card-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  flex: 1 1 200px;
+  text-align: center;
+}
+
+.card-icon {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.map-container {
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+.map {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.donation-form {
+  max-width: 300px;
   display: flex;
   flex-direction: column;
+  gap: 10px;
+}
+
+.donation-form input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.donation-form button {
+  background-color: green;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.success-msg {
+  color: green;
+  margin-top: 10px;
+}
+
+.chat-box {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.msg {
+  padding: 8px;
+  margin-bottom: 4px;
+  border-radius: 6px;
+  max-width: 80%;
+}
+
+.msg.bot {
+  background-color: #eee;
+  align-self: flex-start;
+}
+
+.msg.user {
+  background-color: #cce5cc;
+  align-self: flex-end;
+}
+
+.input-area {
+  display: flex;
+  gap: 10px;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.input-area button {
+  padding: 8px 12px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #4caf50;
+  padding: 10px 20px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+.quick-buttons {
+   margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.quick-buttons button {
+  padding: 8px 16px;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo-title {
+  display: flex;
+  align-items: center;
 }
+
+.logo {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.login-area.right-align {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.login-btn {
+  background-color: white;
+  color: #4caf50;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.login-btn:hover {
+  background-color: #e8f5e9;
+}
+.centered-donation-form {
+  margin: 2rem auto;
+  padding: 1.5rem;
+  max-width: 500px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.chat-box-scroll {
+  height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fdfdfd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.chat-input {
+  display: flex;
+  gap: 10px;
+}
+
+.chat-input input {
+  flex-grow: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.chat-input button {
+  padding: 8px 16px;
+  border: none;
+  background-color:green;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  background-color:green;
+}
+
+
